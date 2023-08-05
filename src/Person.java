@@ -4,7 +4,7 @@ public abstract class Person {
     private String firstName;
     private String lastName;
     private int age;
-    private Person partner;
+    public Person partner;
 
 
     public Person(String firstName, String lastName, int age){
@@ -12,6 +12,19 @@ public abstract class Person {
         this.lastName = lastName;
         this.age = age;
 
+    }
+    public void registerPartnership(Person newPartner){
+        if (getPartner() == null) {
+            this.partner = newPartner;
+        } else {
+            System.out.println("This person have already has partner, divorce process is needed before the marriage process " );
+        }
+    }
+
+    public void  deregisterPartnership(Boolean divorceHappend){
+        if (divorceHappend){
+            setPartner(null);
+        }
     }
 
     public boolean isRetired(){

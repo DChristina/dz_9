@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        //Person first = new Person("lola", "popl", 30);
+
         Man person1 = new Man("Tom","Sot", 35);
         Woman person2 = new Woman("Lola","Huston",24);
         Man person3 = new Man("Nikki","lius",66);
