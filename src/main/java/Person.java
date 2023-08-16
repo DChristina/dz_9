@@ -16,6 +16,9 @@ public abstract class Person {
     public void registerPartnership(Person newPartner){
         if (getPartner() == null) {
             this.partner = newPartner;
+            this.partner.partner = this;
+            newPartner.setLastName(this.getLastName());
+           // this.partner.setLastName(this.partner.getLastName());
         } else {
             System.out.println("This person have already has partner, divorce process is needed before the marriage process " );
         }
@@ -23,6 +26,7 @@ public abstract class Person {
 
     public void  deregisterPartnership(Boolean divorceHappend){
         if (divorceHappend){
+            this.partner.deregisterPartnership(true);
             setPartner(null);
         }
     }

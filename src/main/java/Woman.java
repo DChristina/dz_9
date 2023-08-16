@@ -1,14 +1,16 @@
+
 public class Woman extends Person{
     private String maidenlastName;
 
     public Woman(String firstName, String lastName, int age) {
         super(firstName, lastName, age);
-        this.maidenlastName = lastName;
+        this.setMaidenlastName(lastName);
     }
     @Override
     public void registerPartnership(Person newPartner){
         if (getPartner() == null) {
             this.partner = newPartner;
+            this.partner.partner = this;
             this.setLastName(newPartner.getLastName());
         }
     }
@@ -16,6 +18,7 @@ public class Woman extends Person{
     @Override
     public void  deregisterPartnership(Boolean divorceHappend){
         if (divorceHappend){
+            this.partner.setPartner(null);
             setPartner(null);
             this.setLastName(getMaidenlastName());
         }
